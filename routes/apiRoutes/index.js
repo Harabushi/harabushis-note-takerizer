@@ -1,12 +1,11 @@
 const router = require('express').Router();
 // const req = require('express/lib/request');
-let notes = require('../../db/db.json');
 const { v4: uuidv4 } = require('uuid');
-const { createNote, deleteNote } = require ('../../lib/notes')
+const { createNote, deleteNote, getNotes } = require ('../../lib/notes')
 
 
 router.get('/notes', (req, res) => {
-  res.json(notes);
+  res.json(getNotes());
 });
 
 router.post('/notes', (req, res) => {
